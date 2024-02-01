@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:final_exam/utils/color_utils.dart';
 import 'package:final_exam/utils/route_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,23 +28,23 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: AnimatedContainer(
           duration: const Duration(seconds: 2),
-          height: selected ? 400 : 260,
-          decoration: const BoxDecoration(
+          height: selected ? 400 : 280,
+          decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.grey,
+            color: MyColor.theme3,
           ),
           alignment: Alignment.center,
           child: SizedBox(
             width: 230.0,
             child: DefaultTextStyle(
               style: GoogleFonts.philosopher(
-                fontSize: 48,
-                fontWeight: FontWeight.bold,
-              ),
+                  fontSize: 44,
+                  fontWeight: FontWeight.bold,
+                  color: MyColor.theme4),
               textAlign: TextAlign.center,
               child: AnimatedTextKit(
                 animatedTexts: [
-                  WavyAnimatedText("Notes"),
+                  WavyAnimatedText("NotesApp"),
                 ],
                 isRepeatingAnimation: false,
                 onTap: () {},
@@ -52,6 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
         ),
       ),
+      backgroundColor: MyColor.theme4,
     );
   }
 }

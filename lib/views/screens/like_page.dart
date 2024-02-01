@@ -5,7 +5,9 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 import '../../controller/likeNotes_controller.dart';
+import '../../helpers/fb_helper.dart';
 import '../../models/note_model.dart';
+import '../../utils/color_utils.dart';
 
 class LikePage extends StatelessWidget {
   const LikePage({super.key});
@@ -16,8 +18,15 @@ class LikePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Like Notes"),
+        title: const Text(
+          "Like Notes",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
+        backgroundColor: MyColor.theme4,
+        foregroundColor: MyColor.theme1,
       ),
       body: Padding(
         padding: const EdgeInsets.all(12),
@@ -25,37 +34,54 @@ class LikePage extends StatelessWidget {
           () => ListView.builder(
             itemCount: likeNoteController.likeNotes.length,
             itemBuilder: (context, index) {
-              NoteModal note = likeNoteController.likeNotes.value[index];
+              NoteModal note = likeNoteController.likeNotes[index];
 
               return Card(
+                color: MyColor.theme2,
                 child: ListTile(
                   title: Text(
                     note.title,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
+                      color: MyColor.theme1,
                     ),
                   ),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(note.note),
+                      Text(
+                        note.note,
+                        style: TextStyle(
+                          color: MyColor.theme1,
+                        ),
+                      ),
                       const Gap(24),
-                      Text(note.dateTime),
+                      Text(
+                        note.dateTime,
+                        style: const TextStyle(
+                          color: Colors.white38,
+                        ),
+                      ),
                     ],
                   ),
                   trailing: IconButton(
                     onPressed: () {
-                      DbHelper.dbHelper.deleteData(id: note.id);
+                      likeNoteController.deleteData(id: note.id);
                     },
-                    icon: const Icon(CupertinoIcons.heart_solid),
+                    icon: Icon(
+                      CupertinoIcons.heart_fill,
+                      color: MyColor.theme1,
+                    ),
                   ),
+                  tileColor: MyColor.theme2,
                 ),
               );
             },
           ),
         ),
       ),
+      backgroundColor: MyColor.theme4,
     );
   }
 }

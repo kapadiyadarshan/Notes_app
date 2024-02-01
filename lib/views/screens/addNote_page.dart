@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 
 import '../../helpers/fb_helper.dart';
 import '../../models/note_model.dart';
+import '../../utils/color_utils.dart';
 
 class AddNotePage extends StatelessWidget {
   AddNotePage({super.key});
@@ -14,33 +15,32 @@ class AddNotePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add Note"),
+        title: const Text(
+          "Add Note",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
+        backgroundColor: MyColor.theme4,
+        foregroundColor: MyColor.theme1,
       ),
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
             TextFormField(
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "Please enter task...";
-                } else {
-                  return null;
-                }
-              },
-              decoration: InputDecoration(
+              style: const TextStyle(
+                color: Colors.white54,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+              decoration: const InputDecoration(
                 isDense: true,
                 hintText: "Title",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  borderSide: const BorderSide(
-                    width: 2,
-                  ),
-                ),
+                hintStyle: TextStyle(color: Colors.white38),
+                fillColor: Colors.white,
+                border: InputBorder.none,
               ),
               onChanged: (value) {
                 title = value;
@@ -48,49 +48,43 @@ class AddNotePage extends StatelessWidget {
             ),
             const Gap(12),
             TextFormField(
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "Please enter task...";
-                } else {
-                  return null;
-                }
-              },
               maxLines: 10,
               minLines: 1,
-              decoration: InputDecoration(
+              style: const TextStyle(
+                color: Colors.white54,
+              ),
+              decoration: const InputDecoration(
                 isDense: true,
                 hintText: "Notes",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  borderSide: const BorderSide(
-                    width: 2,
-                  ),
-                ),
+                hintStyle: TextStyle(color: Colors.white38),
+                fillColor: Colors.white,
+                border: InputBorder.none,
               ),
               onChanged: (value) {
                 note = value;
               },
             ),
-            const Spacer(),
-            ElevatedButton(
-              onPressed: () {
-                NoteModal noteModal = NoteModal(
-                  id: DateTime.now().millisecondsSinceEpoch,
-                  note: note,
-                  title: title,
-                  dateTime: DateTime.now().toString(),
-                );
-
-                FbHelper.fbHelper.addNotes(noteModal: noteModal);
-              },
-              child: const Text("Add Note"),
-            ),
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: MyColor.theme3,
+        foregroundColor: MyColor.theme4,
+        onPressed: () {
+          NoteModal noteModal = NoteModal(
+            id: DateTime.now().millisecondsSinceEpoch,
+            note: note,
+            title: title,
+            dateTime: DateTime.now().toString(),
+          );
+
+          FbHelper.fbHelper.addNotes(noteModal: noteModal);
+
+          Navigator.pop(context);
+        },
+        label: const Text("Save"),
+      ),
+      backgroundColor: MyColor.theme4,
     );
   }
 }

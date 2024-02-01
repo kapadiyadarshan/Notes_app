@@ -23,8 +23,6 @@ class LikeNoteController extends GetxController {
   }
 
   deleteData({required int id}) async {
-    await DbHelper.dbHelper.deleteData(id: id).then(
-          (value) => initData(),
-        );
+    await DbHelper.dbHelper.deleteData(id: id).then((value) => initData());
   }
 }

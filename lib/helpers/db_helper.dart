@@ -57,13 +57,11 @@ class DbHelper {
         .toList();
   }
 
-  Future<int> deleteData({required int id}) {
+  Future<int> deleteData({required int id}) async {
     initDB();
 
-    return database.delete(
-      tableName,
-      where: "id = ?",
-      whereArgs: [id],
-    );
+    query = "DELETE FROM $tableName WHERE $colId=$id";
+
+    return await database.rawDelete(query);
   }
 }
