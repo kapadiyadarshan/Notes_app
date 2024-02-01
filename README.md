@@ -1,16 +1,14 @@
-# final_exam
+<img src = "https://github.com/kapadiyadarshan/Notes_app/assets/121553877/f644790c-e183-4387-ac99-28412ee7f4d9" width=300>
 
-A new Flutter project.
+<img src = "https://github.com/kapadiyadarshan/Notes_app/assets/121553877/db89be8d-55e7-49e6-b833-eedc96daf5a2" width=300>
 
-## Getting Started
+<img src = "https://github.com/kapadiyadarshan/Notes_app/assets/121553877/2b90c651-684c-44f5-ab27-2ebea66a5e05" width=300>
 
-This project is a starting point for a Flutter application.
+<img src = "https://github.com/kapadiyadarshan/Notes_app/assets/121553877/bd7ce596-288c-42b6-ac4d-6986392ad6cf" width=300>
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+https://github.com/kapadiyadarshan/Notes_app/assets/121553877/f0bb0312-3ecb-40a2-9e5d-b5798baf24bc
+
+
